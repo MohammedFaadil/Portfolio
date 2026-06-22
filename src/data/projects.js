@@ -46,9 +46,10 @@ This project utilizes Convolutional Neural Networks (CNN) and transfer learning 
     featured: true,
     themeColor: "rose",
     coverImage: "/assets/projects/deepfake-main.jpg",
+    coverImageFit: "contain",
     detailImages: [
-      "/assets/projects/deepfake-model.jpg",
-      "/assets/projects/deepfake-results.jpg"
+      "/assets/projects/deepfake-case1.jpg",
+      "/assets/projects/deepfake-report.jpg"
     ]
   },
   {
@@ -67,7 +68,7 @@ The platform includes interactive security challenges that simulate real-world c
       "/assets/projects/hackers-workspace.jpg",
       "/assets/projects/hackers-leaderboard.jpg",
       "/assets/projects/hackers-speech.jpg",
-      "/assets/projects/hacker-new.jpg"
+      "/assets/projects/hackers-new.jpg"
     ]
   }
 ];

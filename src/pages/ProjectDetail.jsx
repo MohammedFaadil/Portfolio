@@ -10,10 +10,10 @@ import { PageTransition } from '../components/layout/PageTransition';
 import { projectsData } from '../data/projects';
 
 const colorThemes = {
-  indigo: "from-indigo-600 to-indigo-900 text-indigo-300 border-indigo-500/30",
-  teal: "from-teal-600 to-teal-900 text-teal-300 border-teal-500/30",
-  rose: "from-rose-600 to-rose-900 text-rose-300 border-rose-500/30",
-  emerald: "from-emerald-600 to-emerald-900 text-emerald-300 border-emerald-500/30",
+  indigo: "from-indigo-600/60 to-indigo-900/60 text-indigo-300 border-indigo-500/30",
+  teal: "from-teal-600/60 to-teal-900/60 text-teal-300 border-teal-500/30",
+  rose: "from-rose-600/60 to-rose-900/60 text-rose-300 border-rose-500/30",
+  emerald: "from-emerald-600/60 to-emerald-900/60 text-emerald-300 border-emerald-500/30",
 };
 
 export default function ProjectDetail() {
@@ -41,7 +41,7 @@ export default function ProjectDetail() {
     return <Navigate to="/404" replace />;
   }
 
-  const gradientClass = colorThemes[project.themeColor] || "from-gray-700 to-gray-900";
+  const gradientClass = colorThemes[project.themeColor] || "from-gray-700/60 to-gray-900/60";
 
   return (
     <PageTransition>
@@ -70,7 +70,9 @@ export default function ProjectDetail() {
               <img 
                 src={project.coverImage} 
                 alt=""
-                className="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-25"
+                className={`absolute inset-0 h-full w-full mix-blend-overlay opacity-60 ${
+                  project.coverImageFit === 'contain' ? 'object-contain' : 'object-cover'
+                }`}
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
@@ -187,7 +189,9 @@ export default function ProjectDetail() {
                   <img 
                     src={imgUrl} 
                     alt={`${project.title} snapshot ${i + 1}`}
-                    className="w-full h-full object-cover object-top hover:scale-[1.03] transition-transform duration-300"
+                    className={`w-full h-full hover:scale-[1.03] transition-transform duration-300 ${
+                      imgUrl.includes('case1') ? 'object-contain bg-black/10 dark:bg-black/20' : 'object-cover object-top'
+                    }`}
                     onError={(e) => {
                       // Hide card container if the image doesn't exist yet
                       e.target.parentElement.style.display = 'none';

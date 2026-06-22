@@ -5,24 +5,25 @@ import { Badge } from './Badge';
 import { ArrowRight, Trophy } from 'lucide-react';
 
 const colorThemes = {
-  indigo: "from-indigo-600 to-indigo-900",
-  teal: "from-teal-600 to-teal-900",
-  rose: "from-rose-600 to-rose-900",
-  emerald: "from-emerald-600 to-emerald-900",
+  indigo: "from-indigo-600/60 to-indigo-900/60",
+  teal: "from-teal-600/60 to-teal-900/60",
+  rose: "from-rose-600/60 to-rose-900/60",
+  emerald: "from-emerald-600/60 to-emerald-900/60",
 };
 
 export const ProjectCard = ({ project }) => {
-  const gradientClass = colorThemes[project.themeColor] || "from-gray-700 to-gray-900";
+  const gradientClass = colorThemes[project.themeColor] || "from-gray-700/60 to-gray-900/60";
 
   return (
     <Card className="flex flex-col overflow-hidden h-full">
       {/* Abstract Gradient Header instead of Stock Images */}
       <div className={`h-40 w-full bg-gradient-to-tr ${gradientClass} relative p-6 flex flex-col justify-between overflow-hidden group`}>
         {project.coverImage && (
-          <img 
-            src={project.coverImage} 
+          <img
+            src={project.coverImage}
             alt={project.title}
-            className="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-30 transition-transform duration-500 group-hover:scale-105"
+            className={`absolute inset-0 h-full w-full mix-blend-overlay opacity-60 transition-transform duration-500 group-hover:scale-105 ${project.coverImageFit === 'contain' ? 'object-contain' : 'object-cover'
+              }`}
             onError={(e) => {
               e.target.style.display = 'none';
             }}
@@ -30,7 +31,7 @@ export const ProjectCard = ({ project }) => {
         )}
         {/* Decorative Grid Mesh */}
         <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-        
+
         <div className="z-10 flex items-start justify-between">
           <Badge variant="primary" className="bg-carbon/60 text-aqua border-carbon">
             {project.category}
@@ -71,8 +72,8 @@ export const ProjectCard = ({ project }) => {
       </CardContent>
 
       <CardFooter className="p-6 pt-0 border-t border-steel/10 mt-auto">
-        <Link 
-          to={`/projects/${project.slug}`} 
+        <Link
+          to={`/projects/${project.slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold text-aqua hover:text-aqua/80 transition-colors mt-4 group"
         >
           <span>View Case Study</span>

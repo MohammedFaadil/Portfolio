@@ -43,8 +43,11 @@ export const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo / Initials */}
           <div className="flex-shrink-0">
-            <Link to="/" className="font-display text-xl font-bold tracking-wider text-aqua">
-              MF.
+            <Link to="/" className="font-display text-xl font-bold tracking-wider">
+              <span className="text-steel/50 dark:text-steel/40">&lt;</span>
+              <span className="text-carbon dark:text-white">Faadil</span>
+              <span className="text-aqua">.dev</span>
+              <span className="text-steel/50 dark:text-steel/40">&nbsp;/&gt;</span>
             </Link>
           </div>
 

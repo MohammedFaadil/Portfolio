@@ -6,18 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
 import { Badge } from '../components/ui/Badge';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { PageTransition } from '../components/layout/PageTransition';
+import { motion } from 'framer-motion';
 import { profileData } from '../data/profile';
 import { educationData } from '../data/education';
 import { skillsData } from '../data/skills';
-import { 
-  Terminal, 
-  Server, 
-  Cpu, 
-  CheckSquare, 
-  Layers, 
-  Database, 
-  Wrench, 
-  Shield 
+import {
+  Terminal,
+  Server,
+  Cpu,
+  CheckSquare,
+  Layers,
+  Database,
+  Wrench,
+  Shield
 } from 'lucide-react';
 
 const iconMap = {
@@ -44,8 +45,8 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
           <div className="lg:col-span-2">
             <ScrollReveal>
-              <SectionHeading 
-                eyebrow="Biography" 
+              <SectionHeading
+                eyebrow="Biography"
                 title="Secure. Intelligent. Scalable."
                 description="I build robust backend systems, train advanced AI models, and ensure system-level security."
               />
@@ -81,11 +82,7 @@ export default function About() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-aqua">❯</span>
-                      <span>Optimizing REST & FastAPIs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-aqua">❯</span>
-                      <span>Completing final-year B.Tech CSE</span>
+                      <span>Building high-performance REST APIs & backends</span>
                     </li>
                   </ul>
                   <div className="pt-6 border-t border-steel/10">
@@ -107,35 +104,48 @@ export default function About() {
         {/* Skills Section */}
         <div className="mb-20">
           <ScrollReveal>
-            <SectionHeading 
-              eyebrow="Technical Stack" 
-              title="Expertise & Tools" 
+            <SectionHeading
+              eyebrow="Technical Stack"
+              title="Expertise & Tools"
               description="A categorized breakdown of my technical capabilities and the technologies I work with daily."
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skillsData.map((categoryData, index) => {
               const Icon = iconMap[categoryData.category] || Terminal;
               return (
                 <ScrollReveal key={index} delay={index * 0.05}>
-                  <Card className="h-full border border-steel/20 bg-white dark:bg-carbon/50">
-                    <CardHeader className="flex flex-row items-center gap-3">
-                      <div className="p-2 rounded-md bg-aqua/10 text-aqua">
+                  <motion.div
+                    whileHover={{
+                      x: 5,
+                      y: 5,
+                      boxShadow: "0px 0px 0px 0px #84DCC6",
+                      borderColor: "#84DCC6"
+                    }}
+                    transition={{ type: "spring", stiffness: 450, damping: 16 }}
+                    className="h-full border-2 border-carbon dark:border-steel/20 bg-white dark:bg-carbon/70 p-6 shadow-[5px_5px_0px_0px_#84DCC6] flex flex-col transition-colors duration-200"
+                  >
+                    <div className="flex items-center gap-3.5 mb-5">
+                      <div className="p-2 border border-carbon dark:border-steel/30 bg-aqua/10 text-aqua flex-shrink-0">
                         <Icon className="h-6 w-6" />
                       </div>
-                      <CardTitle className="text-lg font-display">{categoryData.category}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-1.5">
-                        {categoryData.skills.map((skill, skillIndex) => (
-                          <Badge key={skillIndex} variant="default" className="text-xs">
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                      <h3 className="text-lg font-display font-bold text-carbon dark:text-white leading-tight">
+                        {categoryData.category}
+                      </h3>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 flex-grow items-start">
+                      {categoryData.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="px-2.5 py-1 text-xs font-mono border border-steel/15 bg-carbon/5 dark:bg-carbon/40 text-steel dark:text-steel/90 rounded-sm"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
                 </ScrollReveal>
               );
             })}
@@ -145,9 +155,9 @@ export default function About() {
         {/* Education Section */}
         <div>
           <ScrollReveal>
-            <SectionHeading 
-              eyebrow="Education" 
-              title="Academic Background" 
+            <SectionHeading
+              eyebrow="Education"
+              title="Academic Background"
               description="My structured academic history and achievements."
             />
           </ScrollReveal>

@@ -15,7 +15,7 @@ I thrive at the intersection of AI and security, constantly seeking to build pro
     { label: "CGPA", value: "8.7" },
     { label: "Internships", value: "4+" },
     { label: "Projects Shipped", value: "4+" },
-    { label: "Awards", value: "1st Place Project Expo" }
+    { label: "Awards", value: "8+" }
   ],
   contact: {
     email: "faadil004@gmail.com",
