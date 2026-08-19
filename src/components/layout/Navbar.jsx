@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { NavLink, Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Mail, FileText } from 'lucide-react';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { Button } from '../ui/Button';
@@ -132,59 +133,88 @@ export const Navbar = () => {
 
       {/* Mobile Drawer — portaled to <body> so it can't be broken by the
           sticky/backdrop-blur header creating its own containing block */}
-      {isOpen && createPortal(
-        <div className="md:hidden fixed inset-0 top-16 z-[100] bg-white dark:bg-carbon border-t border-steel/10">
-          <nav className="flex flex-col p-6 space-y-4 h-full overflow-y-auto bg-white dark:bg-carbon">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `px-4 py-2 rounded-md text-lg font-medium transition-colors ${isActive
-                    ? 'text-aqua bg-aqua/5'
-                    : 'text-steel hover:text-carbon dark:hover:text-white hover:bg-steel/5 dark:hover:bg-white/5'
-                  }`
-                }
+      {createPortal(
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="md:hidden fixed inset-0 top-16 z-[100] bg-white dark:bg-carbon border-t border-steel/10"
+            >
+              <motion.nav
+                initial={{ y: -24, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -24, opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col p-6 space-y-4 h-full overflow-y-auto bg-white dark:bg-carbon"
               >
-                {link.label}
-              </NavLink>
-            ))}
-            <div className="pt-6 border-t border-steel/10 flex flex-col space-y-4">
-              <div className="flex items-center space-x-4 justify-center">
-                <a
-                  href={profileData.contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-steel hover:text-carbon dark:hover:text-white"
-                  aria-label="GitHub"
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ x: -16, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -16, opacity: 0 }}
+                    transition={{ duration: 0.3, delay: 0.08 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <NavLink
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        `block px-4 py-2 rounded-md text-lg font-medium transition-colors ${isActive
+                          ? 'text-aqua bg-aqua/5'
+                          : 'text-steel hover:text-carbon dark:hover:text-white hover:bg-steel/5 dark:hover:bg-white/5'
+                        }`
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ y: 12, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 12, opacity: 0 }}
+                  transition={{ duration: 0.3, delay: 0.08 + navLinks.length * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                  className="pt-6 border-t border-steel/10 flex flex-col space-y-4"
                 >
-                  <Github className="h-6 w-6" />
-                </a>
-                <a
-                  href={profileData.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-steel hover:text-carbon dark:hover:text-white"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </a>
-              </div>
-              <Button
-                href="/mohammed-faadil-cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outline"
-                className="w-full flex items-center justify-center gap-2"
-                onClick={() => setIsOpen(false)}
-              >
-                <FileText className="h-5 w-5" />
-                Download Resume
-              </Button>
-            </div>
-          </nav>
-        </div>,
+                  <div className="flex items-center space-x-4 justify-center">
+                    <a
+                      href={profileData.contact.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 text-steel hover:text-carbon dark:hover:text-white"
+                      aria-label="GitHub"
+                    >
+                      <Github className="h-6 w-6" />
+                    </a>
+                    <a
+                      href={profileData.contact.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 text-steel hover:text-carbon dark:hover:text-white"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-6 w-6" />
+                    </a>
+                  </div>
+                  <Button
+                    href="/mohammed-faadil-cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outline"
+                    className="w-full flex items-center justify-center gap-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <FileText className="h-5 w-5" />
+                    Download Resume
+                  </Button>
+                </motion.div>
+              </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>,
         document.body
       )}
     </header>

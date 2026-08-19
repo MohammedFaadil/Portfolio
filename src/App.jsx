@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence } from 'framer-motion';
@@ -15,6 +15,19 @@ import ProjectDetail from './pages/ProjectDetail';
 import Achievements from './pages/Achievements';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Direct property assignment bypasses the global `scroll-behavior: smooth`
+    // CSS so route changes jump to the top instantly instead of animating.
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+
+  return null;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -38,6 +51,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <AnimatedRoutes />
