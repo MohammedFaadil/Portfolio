@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Mail, FileText } from 'lucide-react';
 import { ThemeToggle } from '../ui/ThemeToggle';
@@ -31,6 +32,13 @@ export const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
     <header
@@ -122,10 +130,11 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer (with Backdrop blur) */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 top-16 z-40 bg-white/95 dark:bg-carbon/95 backdrop-blur-md border-t border-steel/10 transition-transform duration-300">
-          <nav className="flex flex-col p-6 space-y-4">
+      {/* Mobile Drawer — portaled to <body> so it can't be broken by the
+          sticky/backdrop-blur header creating its own containing block */}
+      {isOpen && createPortal(
+        <div className="md:hidden fixed inset-0 top-16 z-[100] bg-white dark:bg-carbon border-t border-steel/10">
+          <nav className="flex flex-col p-6 space-y-4 h-full overflow-y-auto bg-white dark:bg-carbon">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
@@ -175,7 +184,8 @@ export const Navbar = () => {
               </Button>
             </div>
           </nav>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );

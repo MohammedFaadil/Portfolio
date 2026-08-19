@@ -75,7 +75,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="order-2 lg:order-1 lg:col-span-7 space-y-6">
               <ScrollReveal>
                 <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-aqua uppercase block mb-3">
                   AI APPLICATION DEVELOPER · FULL STACK · BACKEND ENGINEER
@@ -120,7 +120,7 @@ export default function Home() {
             </div>
 
             {/* Right: Profile Portrait (first-view hero visual) */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end">
               <ScrollReveal delay={0.2} style="scale-up" className="w-full max-w-[180px] sm:max-w-[240px] lg:max-w-[320px]">
                 <div className="relative mx-auto w-full aspect-square">
                   {/* Animated glow ring behind the portrait */}
