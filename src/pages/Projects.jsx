@@ -23,15 +23,15 @@ export default function Projects() {
     <PageTransition>
       <Helmet>
         <title>Projects | Mohammed Faadil</title>
-        <meta name="description" content="Explore portfolio projects by Mohammed Faadil in AI/ML, backend engineering, and cybersecurity." />
+        <meta name="description" content="Explore portfolio projects by Mohammed Faadil in Agentic AI, full-stack engineering, and cybersecurity." />
       </Helmet>
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <ScrollReveal>
-          <SectionHeading 
-            eyebrow="My Work" 
-            title="Projects & Case Studies" 
-            description="Explore some of the key platforms I've designed and built, ranging from intelligent NLP architectures to secure cybersecurity simulation environments."
+          <SectionHeading
+            eyebrow="My Work"
+            title="Projects & Case Studies"
+            description="Explore some of the key platforms I've designed and built, ranging from Agentic RAG and multi-agent AI systems to production-grade full-stack SaaS platforms and cybersecurity simulation environments."
           />
         </ScrollReveal>
 

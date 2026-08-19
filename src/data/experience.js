@@ -1,65 +1,47 @@
 export const experienceData = [
   {
-    id: "prudent-ai-intern",
+    id: "techwaukee-ai-developer",
+    company: "Techwaukee – Go Recruit AI",
+    location: "Chennai",
+    role: "AI Application Developer",
+    startDate: "Jun 2026",
+    endDate: "Present",
+    description: "Spearheading the core AI architectural transformation by integrating Small Language Models (SLMs) and multi-source Agentic RAG pipelines into an existing enterprise recruitment platform.",
+    bullets: [
+      "Spearheading the core AI architectural transformation by integrating Small Language Models (SLMs) and multi-source Agentic RAG pipelines into an existing enterprise recruitment platform",
+      "Building autonomous, production-ready AI Agents, Conversational Assistants, and Chatbots to automate complex candidate screening, semantic talent discovery, and job-fit evaluation",
+      "Fine-tuning and optimizing inference workflows using Qwen 2.5, Llama 3.3, and NVIDIA foundation models for zero-latency, high-accuracy classification and extraction tasks"
+    ],
+    tags: ["Agentic RAG", "SLMs", "LangGraph", "AI Agents", "NVIDIA NIM"]
+  },
+  {
+    id: "prudent-ai-backend-engineer",
     company: "Prudent AI",
     location: "Chennai",
-    role: "Backend Intern",
+    role: "Backend Engineer",
     startDate: "Dec 2025",
-    endDate: "Present",
-    description: "Developing scalable backend systems using Django and FastAPI for AI-driven enterprise applications.",
+    endDate: "May 2026",
+    description: "Architected scalable backend services using FastAPI and Django for automated data extraction, optimizing REST APIs and high-volume database queries to significantly lower endpoint latency.",
     bullets: [
-      "Developing scalable backend systems using Django and FastAPI for AI-driven enterprise applications",
-      "Designing and optimizing REST APIs to improve backend communication and system performance",
-      "Implementing automated testing pipelines using Pytest, Unittest, and Mock frameworks",
-      "Improving application stability through structured logging, validation, and backend optimization",
-      "Collaborating with development teams on production-ready AI integration workflows"
+      "Architected scalable backend services using FastAPI and Django for automated data extraction, optimizing REST APIs and high-volume database queries to significantly lower endpoint latency",
+      "Implemented test automation suites using Pytest and Unittest with mock fixtures, ensuring > 90% code coverage",
+      "Managed end-to-end development workflows across the Atlassian suite (Jira, Bitbucket), resolving over 50+ client tickets and issue escalations",
+      "Streamlined deployment and local development environments using Docker to ensure consistent service delivery"
     ],
-    tags: ["Django", "FastAPI", "REST APIs", "Pytest", "Backend"]
+    tags: ["FastAPI", "Django", "Pytest", "Docker", "REST APIs"]
   },
   {
     id: "iit-madras-cystar",
     company: "IIT Madras – CYSTAR Lab",
     location: "Chennai",
-    role: "Research Intern",
+    role: "Research Engineer (Cybersecurity & AI)",
     startDate: "Jul 2025",
     endDate: "Mar 2026",
-    description: "Conducted cybersecurity research under Prof. Chester Rebeiro focusing on secure system design and exploit analysis.",
+    description: "Conducted security research under Prof. Chester Rebeiro on secure system architectures, static code vulnerability parsing, and threat modeling for intelligent applications.",
     bullets: [
-      "Conducted cybersecurity research under Prof. Chester Rebeiro focusing on secure system design and exploit analysis",
-      "Developed an AI-assisted PDF-to-Adaptive Quiz Generation platform for training/educational workflows",
-      "Implemented NLP-based semantic chunking and automated question generation pipelines",
-      "Contributed to threat analysis and secure architecture design for AI-driven applications"
+      "Conducted security research under Prof. Chester Rebeiro on secure system architectures, static code vulnerability parsing, and threat modeling for intelligent applications",
+      "Engineered an AI-driven educational platform leveraging NLP-based semantic chunking to transform unformatted technical documents into adaptive evaluation models"
     ],
-    tags: ["Cybersecurity Research", "NLP", "Secure Architecture"]
-  },
-  {
-    id: "cavel-labs",
-    company: "Cavel Labs",
-    location: "Remote",
-    role: "Product Intern",
-    startDate: "Jul 2025",
-    endDate: "Jul 2025",
-    description: "Contributed to secure full-stack development and backend automation workflows.",
-    bullets: [
-      "Contributed to secure full-stack development and backend automation workflows",
-      "Assisted in CI/CD integration, deployment optimization, and performance improvements",
-      "Collaborated on software scalability and deployment reliability"
-    ],
-    tags: ["Full Stack", "CI/CD", "Deployment"]
-  },
-  {
-    id: "izeon-innovative",
-    company: "Izeon Innovative Pvt Ltd",
-    location: "Chennai",
-    role: "Network & Cybersecurity Intern",
-    startDate: "Jun 2024",
-    endDate: "Jun 2024",
-    description: "Configured and maintained routers, switches, and firewalls for secure networking environments.",
-    bullets: [
-      "Configured and maintained routers, switches, and firewalls for secure networking environments",
-      "Designed network topologies using Cisco Packet Tracer for traffic analysis and security testing",
-      "Performed vulnerability assessments and assisted in penetration testing activities"
-    ],
-    tags: ["Networking", "Vulnerability Assessment", "Penetration Testing"]
+    tags: ["Cybersecurity Research", "Threat Modeling", "NLP", "Static Analysis"]
   }
 ];

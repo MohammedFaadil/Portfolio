@@ -11,7 +11,7 @@ export default function Experience() {
     <PageTransition>
       <Helmet>
         <title>Experience | Mohammed Faadil</title>
-        <meta name="description" content="Read through Mohammed Faadil's professional journey, including backend development internships and cybersecurity research." />
+        <meta name="description" content="Read through Mohammed Faadil's professional journey, including AI application development, backend engineering, and cybersecurity research." />
       </Helmet>
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -19,7 +19,7 @@ export default function Experience() {
           <SectionHeading
             eyebrow="Professional Journey"
             title="Work Experience"
-            description="My professional development path, featuring hands-on internships in backend engineering, software product development, and cybersecurity research."
+            description="My professional path, featuring hands-on roles in AI application development, backend engineering, and cybersecurity research."
           />
         </ScrollReveal>
 

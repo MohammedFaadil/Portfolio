@@ -33,7 +33,7 @@ export default function Home() {
         setDisplayText((prev) => currentRole.slice(0, prev.length + 1));
       }
 
-      let speed = 100 - Math.random() * 50;
+      let speed = 20 - Math.random() * 10;
 
       if (isDeleting) {
         speed /= 2;
@@ -49,11 +49,11 @@ export default function Home() {
       }
     };
 
-    timer = setTimeout(tick, 100);
+    timer = setTimeout(tick, 30);
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, currentRoleIndex, roles]);
 
-  const currentRole = experienceData.find(e => e.id === "prudent-ai-intern");
+  const currentRole = experienceData.find(e => e.id === "techwaukee-ai-developer");
   const featuredProjects = projectsData.filter(p => p.featured);
 
   // Flat array of all skills for marquee
@@ -63,7 +63,7 @@ export default function Home() {
     <PageTransition>
       <Helmet>
         <title>Mohammed Faadil | Portfolio</title>
-        <meta name="description" content="Portfolio of Mohammed Faadil - Backend Engineer, AI/ML Developer, and Cybersecurity Researcher." />
+        <meta name="description" content="Portfolio of Mohammed Faadil - AI Application Developer, Full Stack & Backend Engineer specializing in Agentic RAG and multi-agent systems." />
       </Helmet>
 
       {/* Hero Section */}
@@ -78,7 +78,7 @@ export default function Home() {
             <div className="lg:col-span-7 space-y-6">
               <ScrollReveal>
                 <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-aqua uppercase block mb-3">
-                  BACKEND ENGINEER · AI/ML · CYBERSECURITY
+                  AI APPLICATION DEVELOPER · FULL STACK · BACKEND ENGINEER
                 </span>
                 <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-carbon dark:text-white leading-tight">
                   Hi, I'm <span className="text-aqua">Mohammed Faadil</span>
@@ -119,46 +119,31 @@ export default function Home() {
               </ScrollReveal>
             </div>
 
-            {/* Right Interactive Mockup (Terminal) */}
-            <div className="lg:col-span-5">
-              <ScrollReveal delay={0.2} style="scale-up">
-                <div className="rounded-xl border border-steel/20 bg-carbon text-left shadow-2xl overflow-hidden font-mono text-xs sm:text-sm">
-                  {/* Title bar */}
-                  <div className="flex items-center justify-between px-4 py-3 bg-carbon/50 border-b border-steel/10">
-                    <div className="flex space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                    </div>
-                    <span className="text-[10px] text-steel">bash &middot; mohammed@faadil</span>
-                    <div className="w-10"></div>
+            {/* Right: Profile Portrait (first-view hero visual) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <ScrollReveal delay={0.2} style="scale-up" className="w-full max-w-[180px] sm:max-w-[240px] lg:max-w-[320px]">
+                <div className="relative mx-auto w-full aspect-square">
+                  {/* Animated glow ring behind the portrait */}
+                  <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-aqua/30 via-grape/20 to-aqua/30 blur-2xl animate-blob"></div>
+                  <div className="absolute -inset-2 rounded-full border border-aqua/20 animate-pulse"></div>
+
+                  <div className="relative group overflow-hidden rounded-full border-4 border-white dark:border-carbon bg-carbon/50 w-full h-full shadow-2xl">
+                    <div className="absolute inset-0 rounded-full border-2 border-aqua/10 group-hover:border-aqua/40 z-20 transition-all duration-300"></div>
+                    <img
+                      src={myImage}
+                      alt="Mohammed Faadil"
+                      className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  {/* Terminal Body */}
-                  <div className="p-6 space-y-4 text-steel">
-                    <div>
-                      <p className="text-white/60">$ whoami</p>
-                      <p className="text-aqua mt-1">mohammedfaadil</p>
-                    </div>
-                    <div>
-                      <p className="text-white/60">$ cat skills.json</p>
-                      <pre className="text-green-400 mt-1 overflow-x-auto">
-                        {`{
-  "backend": ["Django", "FastAPI"],
-  "ai_ml": ["ML", "DL", "NLP", "TensorFlow"],
-  "security": ["Pentesting", "Vulnerabilities"],
-  "devops": ["Docker", "Linux", "Git"]
-}`}
-                      </pre>
-                    </div>
-                    <div>
-                      <p className="text-white/60">$ uptime</p>
-                      <p className="text-white/80 mt-1">active: 4 internships, 4+ projects shipped</p>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-white/60">$</span>
-                      <span className="animate-pulse text-aqua">█</span>
-                    </div>
-                  </div>
+                </div>
+
+                {/* Status chip — sits below the portrait, clear of the image */}
+                <div className="relative z-10 mt-5 flex items-center justify-center gap-2 rounded-full bg-white dark:bg-carbon border border-steel/20 shadow-md px-3 py-1.5 mx-auto w-fit">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-aqua opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-aqua"></span>
+                  </span>
+                  <span className="font-mono text-[10px] font-semibold text-carbon dark:text-white uppercase tracking-wider whitespace-nowrap">Looking for opportunities</span>
                 </div>
               </ScrollReveal>
             </div>
@@ -202,23 +187,52 @@ export default function Home() {
               </ScrollReveal>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col items-center lg:items-end space-y-6">
-              <ScrollReveal delay={0.15} className="w-full max-w-[320px]">
-                <div className="relative group overflow-hidden rounded-2xl border border-steel/20 bg-carbon/50 w-full aspect-[4/5] shadow-2xl">
-                  {/* Floating Aqua Glow Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-carbon/70 via-transparent to-transparent opacity-80 z-10"></div>
-                  <div className="absolute inset-0 border-2 border-aqua/10 group-hover:border-aqua/30 rounded-2xl z-20 transition-all duration-300"></div>
-                  <img 
-                    src={myImage} 
-                    alt="Mohammed Faadil" 
-                    className="h-full w-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
-                  />
+            <div className="lg:col-span-5 flex flex-col items-stretch space-y-6">
+              <ScrollReveal delay={0.15} style="scale-up">
+                <div className="rounded-xl border border-steel/20 bg-carbon text-left shadow-2xl overflow-hidden font-mono text-xs sm:text-sm">
+                  {/* Title bar */}
+                  <div className="flex items-center justify-between px-4 py-3 bg-carbon/50 border-b border-steel/10">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <span className="text-[10px] text-steel">bash &middot; mohammed@faadil</span>
+                    <div className="w-10"></div>
+                  </div>
+                  {/* Terminal Body */}
+                  <div className="p-6 space-y-4 text-steel">
+                    <div>
+                      <p className="text-white/60">$ whoami</p>
+                      <p className="text-aqua mt-1">mohammedfaadil</p>
+                    </div>
+                    <div>
+                      <p className="text-white/60">$ cat skills.json</p>
+                      <pre className="text-green-400 mt-1 overflow-x-auto">
+                        {`{
+  "ai_agents": ["LangGraph", "Agentic RAG", "SLMs"],
+  "backend": ["FastAPI", "Django", "Node.js"],
+  "frontend": ["Next.js", "React", "TypeScript"],
+  "devops": ["Docker", "AWS", "CI/CD"]
+}`}
+                      </pre>
+                    </div>
+                    <div>
+                      <p className="text-white/60">$ uptime</p>
+                      <p className="text-white/80 mt-1">active: 3 roles, 9+ projects shipped</p>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-white/60">$</span>
+                      <span className="animate-pulse text-aqua">█</span>
+                    </div>
+                  </div>
                 </div>
               </ScrollReveal>
 
-              <ScrollReveal delay={0.2} className="w-full max-w-[320px]">
+              <ScrollReveal delay={0.2}>
                 <Card className="border border-steel/20 bg-white dark:bg-carbon/50 p-6">
                   <h3 className="font-display text-lg font-bold mb-4">Core Skill Snapshot</h3>
+                  <p className="text-xs font-mono text-steel uppercase tracking-wider mb-4">AI/ML &amp; Full-Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {topSkills.map((skill, i) => (
                       <Badge key={i} variant="primary" className="px-3 py-1 text-xs">
@@ -371,15 +385,15 @@ export default function Home() {
               <div className="p-6 rounded-xl border border-steel/15 bg-white dark:bg-carbon/40 text-center flex flex-col items-center">
                 <span className="text-xs font-mono text-aqua mb-2">RESEARCH</span>
                 <h4 className="font-display font-bold text-base leading-tight mb-2">CYSTAR IIT Madras</h4>
-                <p className="text-xs text-steel">Cybersecurity Research Intern</p>
+                <p className="text-xs text-steel">Research Engineer, Cybersecurity & AI</p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <div className="p-6 rounded-xl border border-steel/15 bg-white dark:bg-carbon/40 text-center flex flex-col items-center">
                 <span className="text-xs font-mono text-aqua mb-2">HACKATHON</span>
-                <h4 className="font-display font-bold text-base leading-tight mb-2">SIH Participant</h4>
-                <p className="text-xs text-steel">Smart India Hackathon</p>
+                <h4 className="font-display font-bold text-base leading-tight mb-2">1st Position</h4>
+                <p className="text-xs text-steel">University-Level Hackathon</p>
               </div>
             </ScrollReveal>
           </div>

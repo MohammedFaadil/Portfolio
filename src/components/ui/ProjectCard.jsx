@@ -2,13 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './Card';
 import { Badge } from './Badge';
-import { ArrowRight, Trophy } from 'lucide-react';
+import { ArrowRight, ExternalLink, Trophy } from 'lucide-react';
+import { Github } from './SocialIcons';
 
 const colorThemes = {
   indigo: "from-indigo-600/60 to-indigo-900/60",
   teal: "from-teal-600/60 to-teal-900/60",
   rose: "from-rose-600/60 to-rose-900/60",
   emerald: "from-emerald-600/60 to-emerald-900/60",
+  amber: "from-amber-600/60 to-amber-900/60",
+  violet: "from-violet-600/60 to-violet-900/60",
+  sky: "from-sky-600/60 to-sky-900/60",
 };
 
 export const ProjectCard = ({ project }) => {
@@ -71,7 +75,7 @@ export const ProjectCard = ({ project }) => {
         </div>
       </CardContent>
 
-      <CardFooter className="p-6 pt-0 border-t border-steel/10 mt-auto">
+      <CardFooter className="p-6 pt-0 border-t border-steel/10 mt-auto flex items-center justify-between">
         <Link
           to={`/projects/${project.slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold text-aqua hover:text-aqua/80 transition-colors mt-4 group"
@@ -79,6 +83,34 @@ export const ProjectCard = ({ project }) => {
           <span>View Case Study</span>
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>
+        <div className="flex items-center gap-1 mt-4">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="p-2 rounded-md text-steel hover:text-aqua hover:bg-aqua/10 transition-colors"
+              aria-label="Live Demo"
+              title="Live Demo"
+            >
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="p-2 rounded-md text-steel hover:text-aqua hover:bg-aqua/10 transition-colors"
+              aria-label="GitHub Repository"
+              title="GitHub Repository"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+          )}
+        </div>
       </CardFooter>
     </Card>
   );

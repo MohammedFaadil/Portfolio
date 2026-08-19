@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Trophy, Calendar, Code, Shield, X } from 'lucide-react';
+import { ArrowLeft, Trophy, Calendar, Code, Shield, ExternalLink, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { PageTransition } from '../components/layout/PageTransition';
+import { Github } from '../components/ui/SocialIcons';
 import { projectsData } from '../data/projects';
 
 const colorThemes = {
@@ -14,6 +15,9 @@ const colorThemes = {
   teal: "from-teal-600/60 to-teal-900/60 text-teal-300 border-teal-500/30",
   rose: "from-rose-600/60 to-rose-900/60 text-rose-300 border-rose-500/30",
   emerald: "from-emerald-600/60 to-emerald-900/60 text-emerald-300 border-emerald-500/30",
+  amber: "from-amber-600/60 to-amber-900/60 text-amber-300 border-amber-500/30",
+  violet: "from-violet-600/60 to-violet-900/60 text-violet-300 border-violet-500/30",
+  sky: "from-sky-600/60 to-sky-900/60 text-sky-300 border-sky-500/30",
 };
 
 export default function ProjectDetail() {
@@ -61,6 +65,38 @@ export default function ProjectDetail() {
             <span>Back to Projects</span>
           </Link>
         </ScrollReveal>
+
+        {/* Live Demo / GitHub Actions */}
+        {(project.liveUrl || project.githubUrl) && (
+          <ScrollReveal delay={0.05} className="flex flex-wrap gap-3 mb-8">
+            {project.liveUrl && (
+              <Button
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <ExternalLink className="h-4 w-4" />
+                <span>Live Demo</span>
+              </Button>
+            )}
+            {project.githubUrl && (
+              <Button
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <Github className="h-4 w-4" />
+                <span>View Source</span>
+              </Button>
+            )}
+          </ScrollReveal>
+        )}
 
         {/* Hero Header */}
         <ScrollReveal delay={0.1}>
@@ -140,7 +176,7 @@ export default function ProjectDetail() {
                     <Calendar className="h-5 w-5 text-aqua" />
                     <div>
                       <p className="text-[10px] font-mono uppercase text-steel/60">Timeline</p>
-                      <p className="text-sm font-semibold text-carbon dark:text-white">Completed 2024</p>
+                      <p className="text-sm font-semibold text-carbon dark:text-white">Completed {project.year || 2024}</p>
                     </div>
                   </div>
                   

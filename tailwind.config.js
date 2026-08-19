@@ -21,7 +21,7 @@ export default {
       animation: {
         'blob': 'blob 7s infinite',
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-        'marquee': 'marquee 25s linear infinite',
+        'marquee': 'marquee 180s linear infinite',
       },
       keyframes: {
         blob: {

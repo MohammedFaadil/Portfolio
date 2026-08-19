@@ -22,14 +22,14 @@ import {
 } from 'lucide-react';
 
 const iconMap = {
-  "Programming Languages": Terminal,
-  "Backend Development": Server,
-  "AI/ML": Cpu,
-  "Testing & Automation": CheckSquare,
-  "Frontend & Full Stack": Layers,
-  "Databases": Database,
-  "DevOps & Tools": Wrench,
-  "Cybersecurity": Shield
+  "Languages": Terminal,
+  "AI, LLM & Agents": Cpu,
+  "Backend & Systems": Server,
+  "Frontend & Full-Stack": Layers,
+  "Databases & Caching": Database,
+  "Cloud, DevOps & Infra": Wrench,
+  "Testing & Tools": CheckSquare,
+  "Cybersecurity & Net": Shield
 };
 
 export default function About() {
@@ -47,18 +47,18 @@ export default function About() {
             <ScrollReveal>
               <SectionHeading
                 eyebrow="Biography"
-                title="Secure. Intelligent. Scalable."
-                description="I build robust backend systems, train advanced AI models, and ensure system-level security."
+                title="Agentic. Full-Stack. Secure."
+                description="I build production-grade AI applications, resilient full-stack platforms, and secure system architectures."
               />
               <div className="space-y-6 text-steel dark:text-steel/90 text-lg leading-relaxed">
                 <p>
-                  I am a final-year B.Tech Computer Science Engineering student with a deep passion for building secure, scalable, and intelligent systems. My technical foundation spans across Backend Engineering, AI/ML, and Cybersecurity, allowing me to approach problems from a holistic, systems-level perspective.
+                  I am a product-focused AI Application Developer and Full-Stack Engineer with a proven track record of independently designing and shipping complex, production-grade platforms — from responsive Next.js/React frontends to high-concurrency Node.js/FastAPI microservices and multi-tenant architectures across PostgreSQL and MongoDB.
                 </p>
                 <p>
-                  Currently, I am working as a Backend Intern at Prudent AI, where I develop enterprise backend systems using Django and FastAPI. Previously, I was a Cybersecurity Research Intern at IIT Madras CYSTAR Lab, focusing on secure architecture design and AI-assisted tools.
+                  Currently, I'm driving the core AI architectural transformation at Techwaukee (Go Recruit AI), integrating Small Language Models and multi-source Agentic RAG pipelines into an enterprise recruitment platform. Previously, I was a Backend Engineer at Prudent AI architecting scalable FastAPI/Django services, and a Research Engineer at IIT Madras CYSTAR Lab under Prof. Chester Rebeiro, working on secure system architectures and static code vulnerability analysis.
                 </p>
                 <p>
-                  I thrive at the intersection of AI and security, constantly seeking to build products that are not only powerful and efficient but also deeply secure and resilient.
+                  I thrive at the intersection of full-stack engineering, applied AI, and security — bridging deterministic business logic with multi-agent frameworks like LangGraph and hybrid retrieval pipelines to ship resilient, zero-hallucination applications.
                 </p>
               </div>
             </ScrollReveal>
@@ -74,15 +74,15 @@ export default function About() {
                   <ul className="space-y-3 font-mono text-sm text-steel dark:text-steel/90">
                     <li className="flex items-start gap-2">
                       <span className="text-aqua">❯</span>
-                      <span>Backend systems at Prudent AI</span>
+                      <span>Agentic RAG pipelines at Techwaukee</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-aqua">❯</span>
-                      <span>Exploring secure AI architectures</span>
+                      <span>Fine-tuning SLMs & LLMs for production inference</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-aqua">❯</span>
-                      <span>Building high-performance REST APIs & backends</span>
+                      <span>Shipping zero-hallucination full-stack platforms</span>
                     </li>
                   </ul>
                   <div className="pt-6 border-t border-steel/10">

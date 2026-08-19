@@ -43,15 +43,15 @@ export default function Contact() {
     <PageTransition>
       <Helmet>
         <title>Contact | Mohammed Faadil</title>
-        <meta name="description" content="Get in touch with Mohammed Faadil. Open for backend, AI/ML, and cybersecurity roles." />
+        <meta name="description" content="Get in touch with Mohammed Faadil. Open for AI agent, full-stack, and backend engineering collaborations." />
       </Helmet>
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <ScrollReveal>
-          <SectionHeading 
-            eyebrow="Get In Touch" 
-            title="Let's build something secure & intelligent together" 
-            description="If you're looking for a backend engineer, an AI/ML developer, or a cybersecurity researcher, I'd love to chat. Reach out using the form or direct links."
+          <SectionHeading
+            eyebrow="Get In Touch"
+            title="Let's build something secure & intelligent together"
+            description="If you're looking for an AI application developer, a full-stack engineer, or a backend/cybersecurity collaborator, I'd love to chat. Reach out using the form or direct links."
           />
         </ScrollReveal>
 
