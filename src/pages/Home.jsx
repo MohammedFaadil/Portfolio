@@ -73,55 +73,28 @@ export default function Home() {
         <div className="absolute bottom-1/4 right-1/4 -z-10 h-72 w-72 rounded-full bg-grape/10 blur-3xl animate-blob" style={{ animationDelay: '2s' }}></div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="order-2 lg:order-1 lg:col-span-7 space-y-6">
-              <ScrollReveal>
-                <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-aqua uppercase block mb-3">
-                  AI APPLICATION DEVELOPER · FULL STACK · BACKEND ENGINEER
-                </span>
-                <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-carbon dark:text-white leading-tight">
-                  Hi, I'm <span className="text-aqua">Mohammed Faadil</span>
-                </h1>
-                <div className="h-8 font-mono text-lg sm:text-2xl text-steel dark:text-steel/90 mt-2 flex items-center">
-                  <span>{displayText}</span>
-                  <span className="animate-pulse text-aqua">|</span>
-                </div>
-                <p className="text-lg text-steel dark:text-steel/90 leading-relaxed max-w-2xl mt-4">
-                  {profileData.summary}
-                </p>
-              </ScrollReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-4 gap-y-8 gap-x-12">
+            {/* 1. Heading — mobile order 1 / desktop col 1-7 row 1 */}
+            <ScrollReveal className="order-1 lg:order-none lg:col-span-7 lg:row-start-1 lg:self-end">
+              <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-aqua uppercase block mb-3">
+                AI APPLICATION DEVELOPER · FULL STACK · BACKEND ENGINEER
+              </span>
+              <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-carbon dark:text-white leading-tight">
+                Hi, I'm <span className="text-aqua">Mohammed Faadil</span>
+              </h1>
+            </ScrollReveal>
 
-              <ScrollReveal delay={0.15}>
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <Button to="/projects" variant="primary" className="flex items-center gap-2 group">
-                    <span>View Projects</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                  {/* 
-                    Resume download placeholder: Replace '/resume.pdf' with actual path 
-                    to your CV file when available.
-                  */}
-                  <Button
-                    href="/mohammed-faadil-cv.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="outline"
-                    className="flex items-center gap-2"
-                  >
-                    <FileText className="h-4 w-4" />
-                    <span>Resume</span>
-                  </Button>
-                  <Button to="/contact" variant="ghost" className="flex items-center gap-2">
-                    <span>Get in Touch</span>
-                  </Button>
-                </div>
-              </ScrollReveal>
-            </div>
+            {/* 2. Role transition text — mobile order 2 / desktop col 1-7 row 2 */}
+            <ScrollReveal delay={0.05} className="order-2 lg:order-none lg:col-span-7 lg:row-start-2 lg:self-start">
+              <div className="h-8 font-mono text-lg sm:text-2xl text-steel dark:text-steel/90 flex items-center">
+                <span>{displayText}</span>
+                <span className="animate-pulse text-aqua">|</span>
+              </div>
+            </ScrollReveal>
 
-            {/* Right: Profile Portrait (first-view hero visual) */}
-            <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end">
-              <ScrollReveal delay={0.2} style="scale-up" className="w-full max-w-[180px] sm:max-w-[240px] lg:max-w-[320px]">
+            {/* 3. Profile Portrait — mobile order 3 / desktop col 8-12, spans all rows */}
+            <div className="order-3 lg:order-none lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-4 flex justify-center lg:justify-end lg:self-center">
+              <ScrollReveal delay={0.15} style="scale-up" className="w-full max-w-[180px] sm:max-w-[240px] lg:max-w-[320px]">
                 <div className="relative mx-auto w-full aspect-square">
                   {/* Animated glow ring behind the portrait */}
                   <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-aqua/30 via-grape/20 to-aqua/30 blur-2xl animate-blob"></div>
@@ -147,6 +120,40 @@ export default function Home() {
                 </div>
               </ScrollReveal>
             </div>
+
+            {/* 4. Intro paragraph — mobile order 4 / desktop col 1-7 row 3 */}
+            <ScrollReveal delay={0.1} className="order-4 lg:order-none lg:col-span-7 lg:row-start-3 lg:self-start">
+              <p className="text-lg text-steel dark:text-steel/90 leading-relaxed max-w-2xl">
+                {profileData.summary}
+              </p>
+            </ScrollReveal>
+
+            {/* 5. Buttons — mobile order 5 / desktop col 1-7 row 4 */}
+            <ScrollReveal delay={0.2} className="order-5 lg:order-none lg:col-span-7 lg:row-start-4 lg:self-start">
+              <div className="flex flex-wrap gap-4">
+                <Button to="/projects" variant="primary" className="flex items-center gap-2 group">
+                  <span>View Projects</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+                {/*
+                  Resume download placeholder: Replace '/resume.pdf' with actual path
+                  to your CV file when available.
+                */}
+                <Button
+                  href="/mohammed-faadil-cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                  className="flex items-center gap-2"
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>Resume</span>
+                </Button>
+                <Button to="/contact" variant="ghost" className="flex items-center gap-2">
+                  <span>Get in Touch</span>
+                </Button>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Quick Stat Strip */}
